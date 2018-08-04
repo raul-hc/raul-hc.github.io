@@ -1,1 +1,163 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Raul HC blog</title><description>Thoughts, stories and ideas of a software engineer &amp; developer</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Raul HC blog</title><link>http://localhost:2368/</link></image><generator>Ghost 1.25</generator><lastBuildDate>Fri, 03 Aug 2018 21:49:00 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl></channel></rss>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Raul HC blog</title><description>Thoughts, stories and ideas of a software engineer &amp; developer</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Raul HC blog</title><link>http://localhost:2368/</link></image><generator>Ghost 1.25</generator><lastBuildDate>Sat, 04 Aug 2018 15:52:14 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Sorted arrays and branch predictors</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;In this post I’ll talk about something every person that has taken classes of data structures will be familiar with. But these days that I’m trying to go deeper in some concepts I’m gonna write about this idea in one particular case: &lt;strong&gt;sorted arrays&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The message I&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/sorted-arrays-and-branch-predictors/</link><guid isPermaLink="false">5b65c9d4ddaf49032c17005b</guid><category>branch-predictors</category><category>2016</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:48:05 GMT</pubDate><media:content url="http://localhost:2368/content/images/2018/08/algorithms.jpg" medium="image"/><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;img src="http://localhost:2368/content/images/2018/08/algorithms.jpg" alt="Sorted arrays and branch predictors"&gt;&lt;p&gt;In this post I’ll talk about something every person that has taken classes of data structures will be familiar with. But these days that I’m trying to go deeper in some concepts I’m gonna write about this idea in one particular case: &lt;strong&gt;sorted arrays&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The message I got from some those lectures was essentially that something sorted is gonna be faster in most cases than another thing that is unsorted. Well this is certainly true for arrays; if you measure the time it takes to process a sorted array, and compare it with the processing time of an unsorted one, the results will show this idea.&lt;/p&gt;
+&lt;h3 id="whatsthemagicbehindthis"&gt;What’s the magic behind this?&lt;/h3&gt;
+&lt;p&gt;We need to go deep to understand why this happens, in fact we need to start thinking in how a processor executes basic instructions. When a processor see a branch (e.g. if clause) it doesn’t know which way it will go.&lt;/p&gt;
+&lt;p&gt;The processor can halt execution and wait until the previous instructions are completed and then continue down the correct path … or … the processor could guess which direction the branch will go. If the guessing was right it continues executing instructions, other way the processor have to flush the pipeline, roll back to the branch and continue with the other branch.&lt;br&gt;
+This is a technology modern processors incorporate and is called Branch Prediction. This technology works by trying to predict which way a branch will go before this is known for sure. Branch predictors try to identify a pattern and follow it.&lt;br&gt;
+Most of the time modern branch predictors will guess right because applications use to have well-behaved branches, but when a predictors face unpredictable branches with no recognizable patterns (like in a random array).&lt;/p&gt;
+&lt;h3 id="realexample"&gt;Real example&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;if nums[index] &amp;lt;= 128:&lt;br&gt;
+sum += nums[index]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To understand it with an example the code above shows the processing we are doing over an array. When the data is sorted roughly the first half of the iterations will enter the if-statement and immediately after that, they will all enter the if-statement (Suppose the data we generated goes from 0 up to 255). This is really friendly to the branch predictor because the branch consecutively goes the same direction a lot of times.&lt;/p&gt;
+&lt;p&gt;However, when the data in the array is completely random, the branch predictor is useless because it can't predict random data. This way it will guess right around 50% of the times which is no better than random guessing.&lt;/p&gt;
+&lt;p&gt;This is the code in the case someone wants to try by himself: &lt;a href="https://gist.github.com/raul-hc/a427b2f602a2c5cd46f4da0d803542ca"&gt;Sorted array&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="references"&gt;References:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array?newsletter=1&amp;amp;nlcode=275343%7c112c"&gt;Why is it faster to process a sorted array than an unsorted array?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Branch_predictor"&gt;Branch predictor - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Welcome to this blog.</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Hi there! It's RaulHC here and I want to introduce you to my brand-new blog :)&lt;/p&gt;
+&lt;h2 id="whatisthisabout"&gt;&lt;strong&gt;What is this about?&lt;/strong&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;'Get comfortable being uncomfortable'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The previous quote resumes what this blog is all about. I'm not a person that feels really confortable showing the world some of my thoughts, work or&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/welcome/</link><guid isPermaLink="false">5b65c460ddaf49032c170055</guid><category>2016</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:22:43 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Hi there! It's RaulHC here and I want to introduce you to my brand-new blog :)&lt;/p&gt;
+&lt;h2 id="whatisthisabout"&gt;&lt;strong&gt;What is this about?&lt;/strong&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;'Get comfortable being uncomfortable'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The previous quote resumes what this blog is all about. I'm not a person that feels really confortable showing the world some of my thoughts, work or ideas. It's a pet project that I will use to learn some new things getting out of my comfort zone. It's also a personal repository where I would try to contribute to the internet with some of my knowledge.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It's a diary about things I have done related to programming mostly.&lt;/li&gt;
+&lt;li&gt;It's a blog where I will write about some things that catch my eye about anything.&lt;/li&gt;
+&lt;li&gt;It's a place where express myself and practice some english witting.&lt;/li&gt;
+&lt;li&gt;It's all of the above and more.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So if you want to take a look and take advantage of anything write here, you are welcome!&lt;/p&gt;
+&lt;p&gt;PS: This is a gosh blog hosting on Github&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Do not surround yourself with toxic people</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Everybody will have to deal with toxic people in a way or another, at university, at work maybe even with some relative. What this post is about is how i used to deal with these kind of people driven  by envy or just their own boredom.&lt;/p&gt;
+&lt;h3 id="howcanyourecognizeatoxicperson"&gt;How can you recognize&lt;/h3&gt;&lt;/div&gt;</description><link>http://localhost:2368/do-not-surround-yourself-with-toxic-people/</link><guid isPermaLink="false">5b65c400ddaf49032c170053</guid><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:20:20 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Everybody will have to deal with toxic people in a way or another, at university, at work maybe even with some relative. What this post is about is how i used to deal with these kind of people driven  by envy or just their own boredom.&lt;/p&gt;
+&lt;h3 id="howcanyourecognizeatoxicperson"&gt;How can you recognize a toxic person?&lt;/h3&gt;
+&lt;p&gt;Every person I've met with this sort of behavior usually are easy to recognize by their lack of motivation in life.  These a some of the behaviors that characterize them in my humble opinion:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For them only exists their way of doing something and that’s the correct way. &lt;strong&gt;This is obviously not true&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;They will throw at you phrases that can be summarize to 'you can't do X thing' or '...but you don't know anything about X'. &lt;strong&gt;This a form of underestimating you and your skills&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;They use to have a strong tendency to make judgments about other people with no absolutely zero about them.  &lt;strong&gt;You don’t know what someone has been through, you don’t know his story so don’t judge another person&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;They will try to stop you from doing what you want and they won't stop trying to drag you to the things they're good at and they can maintain a dominant position. &lt;strong&gt;This way they will always be &lt;em&gt;above you&lt;/em&gt; and will keep you from improve&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Another way to recognize a toxic person is looking at what he talks about a thing. If he only talks about the negative aspects and emphasize them instead of centering the conversation in the good parts, ah…, begin to suspect. &lt;strong&gt;They are negative people by nature and instead lift you they will try to push you down&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="whattodo"&gt;What to do&lt;/h2&gt;
+&lt;p&gt;My personal experience says that the best option is to try to avoid them under all circumstances. But as I told you at the beginning of this post you will deal with people of all kinds during life so don’t worry, it’s just another experience you have to go thorough. In consequence, if you are forced to work in any way with people of this kind, just keep a cordial and professional relationship with them, do not include them in you social circle or your life.&lt;/p&gt;
+&lt;p&gt;And as a final advice, one I use myself, transform their attempts of making you desist in and extra boost of energy to get to your goals. As one quote I read once, &lt;em&gt;Tell me I can’t, then watch me work twice as hard to prove you wrong&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Have a nice day :)&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2018/08/logo-good-vibes.png" alt=""&gt;&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Some useful search operators</title><description>&lt;div class="kg-card-markdown"&gt;&lt;h5 id="sitegetresultsfromcertainsitesordomains"&gt;&lt;strong&gt;&lt;em&gt;site:&lt;/em&gt;&lt;/strong&gt; Get results from certain sites or domains.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- olympics site:nbc.com
+- olympics site:.gov
+- admissions site:www.lse.ac.uk  -&amp;gt;  admissions information from London School of Economics’ site
+- peace site:gov -&amp;gt; pages about peace within the .gov domain. 
+windows security –site:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">5b65c3c1ddaf49032c170051</guid><category>tricks</category><category>2016</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:19:07 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;h5 id="sitegetresultsfromcertainsitesordomains"&gt;&lt;strong&gt;&lt;em&gt;site:&lt;/em&gt;&lt;/strong&gt; Get results from certain sites or domains.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- olympics site:nbc.com
+- olympics site:.gov
+- admissions site:www.lse.ac.uk  -&amp;gt;  admissions information from London School of Economics’ site
+- peace site:gov -&amp;gt; pages about peace within the .gov domain. 
+windows security –site:microsoft.com -&amp;gt; information on Windows security from all sites except microsoft.com
+
+** You can specify a domain with or without a period, e.g., either as .gov or gov.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="relatedfindsitesthataresimilartoawebaddressyoualreadyknow"&gt;&lt;strong&gt;&lt;em&gt;related:&lt;/em&gt;&lt;/strong&gt;	Find sites that are similar to a web address you already know.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- related:time.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="orfindpagesthatmightuseoneofseveralwords"&gt;&lt;strong&gt;&lt;em&gt;OR&lt;/em&gt;&lt;/strong&gt;   -	  Find pages that might use one of several words.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- marathon OR race
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="infogetinformationaboutawebaddressincludingthecachedversionofthepagesimilarpagesandpagesthatlinktothesite"&gt;&lt;strong&gt;&lt;em&gt;info:&lt;/em&gt;&lt;/strong&gt;	Get information about a web address, including the cached version of the page, similar pages, and pages that link to the site.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- info:google.com
+- info:gothotel.com -&amp;gt; information about the national hotel directory GotHotel.com home page.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="cacheseewhatapagelookslikethelasttimegooglevisitedthesite"&gt;&lt;strong&gt;&lt;em&gt;cache:&lt;/em&gt;&lt;/strong&gt;		see what a page looks like the last time Google visited the site.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- cache:washington.edu
+- cache:www.eff.org -&amp;gt; will show Google’s cached version of the Electronic Frontier Foundation home page.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h5 id="defineshowsdefinitionsfrompagesonthewebforthetermthatfollowsthisadvancedsearchoperatorisusefulforfindingdefinitionsofwordsphrasesandacronymsforexample"&gt;&lt;strong&gt;&lt;em&gt;define:&lt;/em&gt;&lt;/strong&gt; shows definitions from pages on the web for the term that follows. This advanced search operator is useful for finding definitions of words, phrases, and acronyms. For example,&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- define: blog -&amp;gt; will show definitions for “Blog” (weB LOG).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="filetyperestricttheresultstopageswhosenamesendinsuffix"&gt;&lt;strong&gt;&lt;em&gt;filetype:&lt;/em&gt;&lt;/strong&gt; restrict the results to pages whose names end in suffix.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- web page evaluation checklist filetype:pdf -&amp;gt; will return Adobe Acrobat pdf files that match the terms &amp;quot;web&amp;quot;, &amp;quot;page&amp;quot;, &amp;quot;evaluation&amp;quot; and &amp;quot;checklist&amp;quot; 
+
+** You can restrict the results to pages whose names end with pdf and doc by using the OR operator, e.g. [  email security filetype:pdf OR filetype:doc ].
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="linkpagesthatpointtothaturl"&gt;&lt;strong&gt;&lt;em&gt;link:&lt;/em&gt;&lt;/strong&gt;	pages that point to that URL.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- link:www.googleguide.com -&amp;gt; pages that point to Google Guide’s home page
+- link:www.google.com -site:google.com  -&amp;gt; links to the Google home page not on Google’s own site.
+- link:www.www.ownersdirect.co.uk -site:ownersdirect.co.uk -&amp;gt; links to the UK Owners Direct home page not on its own site.
+
+basic search operators +, –, OR, and &amp;quot; &amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="inanchorrestricttheresultstopagescontainingthequerytermsyouspecifyintheanchortextorlinkstothepage"&gt;&lt;strong&gt;&lt;em&gt;inanchor:&lt;/em&gt;&lt;/strong&gt;  restrict the results to pages containing the query terms you specify in the anchor text or links to the page.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- restaurants inanchor:gourmet -&amp;gt; will return pages in which the anchor text on links to the pages contain the word “gourmet” and the page contains the word “restaurants.”
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="allinanchorrestrictsresultstopagescontainingallquerytermsyouspecifyintheanchortextonlinkstothepage"&gt;** &lt;em&gt;allinanchor:&lt;/em&gt;** restricts results to pages containing all query terms you specify in the anchor text on links to the page.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- allinanchor:best museums sydney -&amp;gt; will return only pages in which the anchor text on links to the pages contain the words “best,” “museums,” and “sydney”
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="intextrestrictsresultstodocumentscontainingterminthetext"&gt;&lt;strong&gt;&lt;em&gt;intext:&lt;/em&gt;&lt;/strong&gt;  restricts results to documents containing term in the text.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- Hamish Reid intext:pandemonia -&amp;gt; will return documents that mention the word “pandemonia” in the text, and mention the names “Hamish” and “Reid” anywhere in the document (text or not).
+
+** Putting intext: in front of every word in your query is equivalent to putting allintext: at the front of your query, e.g., *intext:handsome intext:poets* is the same as *allintext: handsome poets*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="intitlerestrictsresultstodocumentscontainingterminthetitle"&gt;&lt;strong&gt;&lt;em&gt;intitle:&lt;/em&gt;&lt;/strong&gt;  restricts results to documents containing term in the title.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- flu shot intitle:help -&amp;gt; will return documents that mention the word “help” in their titles, and mention the words “flu” and “shot” anywhere in the document (title or not).  
+
+** Putting intitle: in front of every word in your query is equivalent to putting allintitle: at the front of your query, e.g., *intitle:google intitle:search* is the same as *allintitle: google search*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="inurlrestricttheresultstodocumentscontainingthatwordintheurl"&gt;&lt;strong&gt;&lt;em&gt;inurl:&lt;/em&gt;&lt;/strong&gt; restrict the results to documents containing that word in the URL.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- inurl:print site:www.googleguide.com -&amp;gt; searches for pages on Google Guide in which the URL contains the word “print.” It finds pdf files that are in the directory or folder named “print” on the Google Guide website. 
+- inurl:healthy eating -&amp;gt; will return documents that mention the words “healthy” in their URL, and mention the word “eating” anywhere in the document.
+
+** Putting inurl: in front of every word in your query is equivalent to putting allinurl: at the front of your query, e.g., *inurl:healthy inurl:eating* is the same as *allinurl: healthy eating*
+In URLs, words are often run together. They need not be run together when you’re using inurl:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h4 id="symbols"&gt;&lt;strong&gt;Symbols:&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;-&lt;/strong&gt;&lt;br&gt;
+When you use a dash before a word or site, it excludes sites with that info from your results. This is useful for words with multiple meanings, like Jaguar the car brand and jaguar the animal.&lt;br&gt;
+&lt;em&gt;jaguar speed -car&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;pandas -site:wikipedia.org&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;“&lt;/strong&gt;&lt;br&gt;
+When you put a word or phrase in quotes, the results will only include pages with the same words in the same order as the ones inside the quotes. Only use this if you're looking for an exact word or phrase, otherwise you'll exclude many helpful results by mistake.&lt;br&gt;
+&lt;em&gt;“imagine all the people”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;*&lt;/strong&gt;	&lt;br&gt;
+Add an asterisk as a placeholder for any unknown or wildcard terms.&lt;br&gt;
+&lt;em&gt;”a * saved is a * earned”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;..&lt;/strong&gt;&lt;br&gt;
+Separate numbers by two periods without spaces to see results that contain numbers in a range.&lt;br&gt;
+&lt;em&gt;hard drive $50..$75&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;References:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://support.google.com/websearch/answer/2466433?hl=en"&gt;Search operators - Search Help&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.googleguide.com/advanced_operators_reference.html"&gt;Google Search Operators - Google Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Thoughts on my internship interview</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2018/08/job.png" alt="job"&gt;&lt;/p&gt;
+&lt;h6 id="thispostwasoriginallywritteninnovember2016andrecoveredfrommyoldblog"&gt;&lt;em&gt;This post was originally written in november 2016 and recovered from my old blog&lt;/em&gt;&lt;/h6&gt;
+&lt;hr&gt;
+&lt;p&gt;This is my final year at university as Software Engineer Student and we need to complete at least 120 hours working in a company as a part of one of the 'subjects'.&lt;/p&gt;
+&lt;p&gt;The process starts with&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/thoughts-on-my-internship-interview-2/</link><guid isPermaLink="false">5b65c020ddaf49032c170049</guid><category>job-interview</category><category>first-job</category><category>2016</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:11:23 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2018/08/job.png" alt="job"&gt;&lt;/p&gt;
+&lt;h6 id="thispostwasoriginallywritteninnovember2016andrecoveredfrommyoldblog"&gt;&lt;em&gt;This post was originally written in november 2016 and recovered from my old blog&lt;/em&gt;&lt;/h6&gt;
+&lt;hr&gt;
+&lt;p&gt;This is my final year at university as Software Engineer Student and we need to complete at least 120 hours working in a company as a part of one of the 'subjects'.&lt;/p&gt;
+&lt;p&gt;The process starts with a list of offering companies and every student enrolled in the course choose several options in order of preference. Then the course staff start to sort by average grade mainly the students. The output of this process is a list of students who should contact the respective companies to start the process.&lt;/p&gt;
+&lt;p&gt;Well, so my first company choice was CSC, a very large company located in Avilés (also Barcelona, Madrid, etc). I contacted the human resources person who was responsible of the agreement with my university and sent her the english version of my resumé. After a couple of weeks I received a call asking me to go to their offices in Avilés next day. I accepted to be there at mid-morning to realize the internship interview.&lt;/p&gt;
+&lt;h4 id="theinterview"&gt;The interview&lt;/h4&gt;
+&lt;p&gt;I arrived at their offices a little bit early because I try to follow the rule '5 Minutes early is on time; on time is late; late is unacceptable.' I had to sign a sort of contract to enter the building and keep in view the visitor's accreditation that I was given.&lt;/p&gt;
+&lt;p&gt;After a few minutes two men, one from Spain and one foreigner, came and introduce themselves. They were part of the IT systems department of the company. All of us went to a meeting room where they started asking me some questions about my CV (they'd printed it and underline the parts they were more interested in). When we finished talking two of the DevOps engineers of the company and one of the development department entered the room and introduced themselves. They asked me kind of the same things that the other team and some questions about their respective job tasks, like if I was familiar with some of the concepts. We also talked about some of the technologies the company use in daily task and a little about how things work there. I explained them why I think university is a little obsolete and the disconnection that exists between the institution and the real-world companies. We also talked about some of my hobbies, what project I was working on for my final course between others.&lt;/p&gt;
+&lt;p&gt;I wouldn't like to finish without adding I felt really comfortable talking with all of these people, specially because they were actual workers of the company and I had the opportunity to ask them some technical questions related to the task I would be doing. In fact it was more like a relaxed conversation between engineers who like working on what they do. All of this process was realized in Spanish and English to test my conversational skills . I didn't wanted to fool anybody about my english level and I liked the idea to talk a little in the Shakespeare's language even though I'm not the best english speaker xD&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UPDATE: Today I received a call from CSC's human resources department telling me I was one of the selected candidates. Hooray!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;</content:encoded></item></channel></rss>
