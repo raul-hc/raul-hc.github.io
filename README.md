@@ -11,8 +11,6 @@ The project is maintained by a non-profit organisation called the **Ghost Founda
 
 - [Ghost.org](https://ghost.org)
 
-&nbsp;
-
 # Copyright & License
 
 Copyright (c) 2013-2018 Ghost Foundation - Released under the [MIT license](LICENSE). Ghost and the Ghost Logo are trademarks of Ghost Foundation Ltd. Please see our [trademark policy](https://ghost.org/trademark/) for info on acceptable usage.
