@@ -1,0 +1,302 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Raul HC blog</title><description>Thoughts, stories and ideas of a software engineer &amp; developer</description><link>http://localhost:2368/</link><image><url>http://localhost:2368/favicon.png</url><title>Raul HC blog</title><link>http://localhost:2368/</link></image><generator>Ghost 1.25</generator><lastBuildDate>Sun, 05 Aug 2018 11:13:44 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Ghost blog setup for Github pages</title><description>&lt;p&gt;&lt;em&gt;To be rewritten&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Installation of Ghost locally&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Download .zip &amp;amp; decompress&lt;/li&gt;
+&lt;li&gt;npm install&lt;/li&gt;
+&lt;li&gt;npm start
+&lt;ul&gt;
+&lt;li&gt;If problem DatabaseIsNotOk
+&lt;ul&gt;
+&lt;li&gt;npm install knex-migrator&lt;/li&gt;
+&lt;li&gt;knex-migrator init&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;go to localhost:2368/ghost to create a new user&lt;/li&gt;
+&lt;li&gt;Ready!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Github repository: gh-pages branch not needed&lt;/p&gt;
+&lt;p&gt;Buster for generating the static site&lt;/p&gt;
+&lt;p&gt;Steps to create a&lt;/p&gt;</description><link>http://localhost:2368/ghost-blog-setup-for-github-pages/</link><guid isPermaLink="false">5b66d5082a3b5f149a1942da</guid><dc:creator>Raul Herrador</dc:creator><pubDate>Sun, 05 Aug 2018 10:52:59 GMT</pubDate><media:content url="http://localhost:2368/content/images/2018/08/ghost-blog.jpeg" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2018/08/ghost-blog.jpeg" alt="Ghost blog setup for Github pages"&gt;&lt;p&gt;&lt;em&gt;To be rewritten&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Installation of Ghost locally&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Download .zip &amp;amp; decompress&lt;/li&gt;
+&lt;li&gt;npm install&lt;/li&gt;
+&lt;li&gt;npm start
+&lt;ul&gt;
+&lt;li&gt;If problem DatabaseIsNotOk
+&lt;ul&gt;
+&lt;li&gt;npm install knex-migrator&lt;/li&gt;
+&lt;li&gt;knex-migrator init&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;go to localhost:2368/ghost to create a new user&lt;/li&gt;
+&lt;li&gt;Ready!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Github repository: gh-pages branch not needed&lt;/p&gt;
+&lt;p&gt;Buster for generating the static site&lt;/p&gt;
+&lt;p&gt;Steps to create a new post &amp;amp; deploy&lt;br&gt;
+* start ghost server in local env&lt;br&gt;
+* write the new story&lt;br&gt;
+* generate static site with buster (ghost should be running when executing this step)&lt;br&gt;
+* Upload changes to github repo &amp;amp; wait for github to deploy the site&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</content:encoded></item><item><title>Setting up your own Ghost theme</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Creating a totally custom design for your publication&lt;/p&gt;
+&lt;p&gt;Ghost comes with a beautiful default theme called Casper, which is designed to be a clean, readable publication layout and can be easily adapted for most purposes. However, Ghost can also be completely themed to suit your needs. Rather than just giving&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/setting-up-your-own-ghost-theme/</link><guid isPermaLink="false">5b66d15a2a3b5f149a1942d7</guid><category>Getting Started</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sun, 05 Aug 2018 10:29:03 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Creating a totally custom design for your publication&lt;/p&gt;
+&lt;p&gt;Ghost comes with a beautiful default theme called Casper, which is designed to be a clean, readable publication layout and can be easily adapted for most purposes. However, Ghost can also be completely themed to suit your needs. Rather than just giving you a few basic settings which act as a poor proxy for code, we just let you write code.&lt;/p&gt;
+&lt;p&gt;There are a huge range of both free and premium pre-built themes which you can get from the &lt;a href="http://marketplace.ghost.org"&gt;Ghost Theme Marketplace&lt;/a&gt;, or you can simply create your own from scratch.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://marketplace.ghost.org"&gt;&lt;img src="https://casper.ghost.org/v1.0.0/images/marketplace.jpg" alt="marketplace"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Anyone can write a completely custom Ghost theme, with just some solid knowledge of HTML and CSS&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ghost themes are written with a templating language called handlebars, which has a bunch of dynamic helpers to insert your data into template files. Like &lt;code&gt;{{author.name}}&lt;/code&gt;, for example, outputs the name of the current author.&lt;/p&gt;
+&lt;p&gt;The best way to learn how to write your own Ghost theme is to have a look at &lt;a href="https://github.com/TryGhost/Casper"&gt;the source code for Casper&lt;/a&gt;, which is heavily commented and should give you a sense of how everything fits together.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;default.hbs&lt;/code&gt; is the main template file, all contexts will load inside this file unless specifically told to use a different template.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;post.hbs&lt;/code&gt; is the file used in the context of viewing a post.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;index.hbs&lt;/code&gt; is the file used in the context of viewing the home page.&lt;/li&gt;
+&lt;li&gt;and so on&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We've got &lt;a href="http://themes.ghost.org/v1.23.0/docs/about"&gt;full and extensive theme documentation&lt;/a&gt; which outlines every template file, context and helper that you can use.&lt;/p&gt;
+&lt;p&gt;If you want to chat with other people making Ghost themes to get any advice or help, there's also a &lt;strong&gt;themes&lt;/strong&gt; section on our &lt;a href="https://forum.ghost.org/c/themes"&gt;public Ghost forum&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Organising your content with tags</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Ghost has a single, powerful organisational taxonomy, called tags.&lt;/p&gt;
+&lt;p&gt;It doesn't matter whether you want to call them categories, tags, boxes, or anything else. You can think of Ghost tags a lot like Gmail labels. By tagging posts with one or more keyword, you can organise articles into buckets of&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/organising-your-content-with-tags/</link><guid isPermaLink="false">5b66d1112a3b5f149a1942d4</guid><category>Getting Started</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sun, 05 Aug 2018 10:27:53 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Ghost has a single, powerful organisational taxonomy, called tags.&lt;/p&gt;
+&lt;p&gt;It doesn't matter whether you want to call them categories, tags, boxes, or anything else. You can think of Ghost tags a lot like Gmail labels. By tagging posts with one or more keyword, you can organise articles into buckets of related content.&lt;/p&gt;
+&lt;h2 id="basictagging"&gt;Basic tagging&lt;/h2&gt;
+&lt;p&gt;When you write a post, you can assign tags to help differentiate between categories of content. For example, you might tag some posts with &lt;code&gt;News&lt;/code&gt; and other posts with &lt;code&gt;Cycling&lt;/code&gt;, which would create two distinct categories of content listed on &lt;code&gt;/tag/news/&lt;/code&gt; and &lt;code&gt;/tag/cycling/&lt;/code&gt;, respectively.&lt;/p&gt;
+&lt;p&gt;If you tag a post with both &lt;code&gt;News&lt;/code&gt; &lt;em&gt;and&lt;/em&gt; &lt;code&gt;Cycling&lt;/code&gt; - then it appears in both sections.&lt;/p&gt;
+&lt;p&gt;Tag archives are like dedicated home-pages for each category of content that you have. They have their own pages, their own RSS feeds, and can support their own cover images and meta data.&lt;/p&gt;
+&lt;h2 id="theprimarytag"&gt;The primary tag&lt;/h2&gt;
+&lt;p&gt;Inside the Ghost editor, you can drag and drop tags into a specific order. The first tag in the list is always given the most importance, and some themes will only display the primary tag (the first tag in the list) by default. So you can add the most important tag which you want to show up in your theme, but also add a bunch of related tags which are less important.&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;&lt;strong&gt;News&lt;/strong&gt;, Cycling, Bart Stevens, Extreme Sports&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;In this example, &lt;strong&gt;News&lt;/strong&gt; is the primary tag which will be displayed by the theme, but the post will also still receive all the other tags, and show up in their respective archives.&lt;/p&gt;
+&lt;h2 id="privatetags"&gt;Private tags&lt;/h2&gt;
+&lt;p&gt;Sometimes you may want to assign a post a specific tag, but you don't necessarily want that tag appearing in the theme or creating an archive page. In Ghost, hashtags are private and can be used for special styling.&lt;/p&gt;
+&lt;p&gt;For example, if you sometimes publish posts with video content - you might want your theme to adapt and get rid of the sidebar for these posts, to give more space for an embedded video to fill the screen. In this case, you could use private tags to tell your theme what to do.&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;&lt;strong&gt;News&lt;/strong&gt;, Cycling, #video&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;Here, the theme would assign the post publicly displayed tags of &lt;code&gt;News&lt;/code&gt;, and &lt;code&gt;Cycling&lt;/code&gt; - but it would also keep a private record of the post being tagged with &lt;code&gt;#video&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In your theme, you could then look for private tags conditionally and give them special formatting:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{{#post}}
+    {{#has tag=&amp;quot;#video&amp;quot;}}
+        ...markup for a nice big video post layout...
+    {{else}}
+        ...regular markup for a post...
+    {{/has}}
+{{/post}}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can find documentation for theme development techniques like this and many more over on Ghost's extensive &lt;a href="https://themes.ghost.org/v1.23.0/"&gt;theme documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Advanced Markdown tips</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;There are lots of powerful things you can do with the Ghost editor&lt;/p&gt;
+&lt;p&gt;If you've gotten pretty comfortable with &lt;a href="http://localhost:2368/the-editor/"&gt;all the basics&lt;/a&gt; of writing in Ghost, then you may enjoy some more advanced tips about the types of things you can do with Markdown!&lt;/p&gt;
+&lt;p&gt;As with the last post about&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/advanced-markdown-tips/</link><guid isPermaLink="false">5b66cf7a2a3b5f149a1942cf</guid><category>markdown</category><category>Getting Started</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sun, 05 Aug 2018 10:21:32 GMT</pubDate><media:content url="http://localhost:2368/content/images/2018/08/Hallstatt--Austria.jpg" medium="image"/><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;img src="http://localhost:2368/content/images/2018/08/Hallstatt--Austria.jpg" alt="Advanced Markdown tips"&gt;&lt;p&gt;There are lots of powerful things you can do with the Ghost editor&lt;/p&gt;
+&lt;p&gt;If you've gotten pretty comfortable with &lt;a href="http://localhost:2368/the-editor/"&gt;all the basics&lt;/a&gt; of writing in Ghost, then you may enjoy some more advanced tips about the types of things you can do with Markdown!&lt;/p&gt;
+&lt;p&gt;As with the last post about the editor, you'll want to be actually editing this post as you read it so that you can see all the Markdown code we're using.&lt;/p&gt;
+&lt;h2 id="specialformatting"&gt;Special formatting&lt;/h2&gt;
+&lt;p&gt;As well as bold and italics, you can also use some other special formatting in Markdown when the need arises, for example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;s&gt;strike through&lt;/s&gt;&lt;/li&gt;
+&lt;li&gt;&lt;mark&gt;highlight&lt;/mark&gt;&lt;/li&gt;
+&lt;li&gt;*escaped characters*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="writingcodeblocks"&gt;Writing code blocks&lt;/h2&gt;
+&lt;p&gt;There are two types of code elements which can be inserted in Markdown, the first is inline, and the other is block. Inline code is formatted by wrapping any word or words in back-ticks, &lt;code&gt;like this&lt;/code&gt;. Larger snippets of code can be displayed across multiple lines using triple back ticks:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.my-link {
+    text-decoration: underline;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you want to get really fancy, you can even add syntax highlighting using &lt;a href="http://prismjs.com/"&gt;Prism.js&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="fullbleedimages"&gt;Full bleed images&lt;/h2&gt;
+&lt;p&gt;One neat trick which you can use in Markdown to distinguish between different types of images is to add a &lt;code&gt;#hash&lt;/code&gt; value to the end of the source URL, and then target images containing the hash with special styling. For example:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://images.unsplash.com/photo-1533396518025-f48fb34e7b9f?ixlib=rb-0.3.5&amp;amp;q=80&amp;amp;fm=jpg&amp;amp;crop=entropy&amp;amp;cs=tinysrgb&amp;amp;w=1080&amp;amp;fit=max&amp;amp;ixid=eyJhcHBfaWQiOjExNzczfQ&amp;amp;s=67a071ff4d9d3da297d75874e783e52f#full" alt="Advanced Markdown tips"&gt;&lt;br&gt;
+&lt;small&gt;Photo by &lt;a href="https://unsplash.com/@thisisishan17?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit"&gt;ishan shah&lt;/a&gt; / &lt;a href="https://unsplash.com/?utm_source=ghost&amp;amp;utm_medium=referral&amp;amp;utm_campaign=api-credit"&gt;Unsplash&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;which is styled with...&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;img[src$=&amp;quot;#full&amp;quot;] {
+    max-width: 100vw;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This creates full-bleed images in the Casper theme, which stretch beyond their usual boundaries right up to the edge of the window. Every theme handles these types of things slightly differently, but it's a great trick to play with if you want to have a variety of image sizes and styles.&lt;/p&gt;
+&lt;h2 id="referencelists"&gt;Reference lists&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;The quick brown &lt;a href="https://en.wikipedia.org/wiki/Fox" title="Wikipedia: Fox"&gt;fox&lt;/a&gt;, jumped over the lazy &lt;a href="https://en.wikipedia.org/wiki/Dog" title="Wikipedia: Dog"&gt;dog&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Another way to insert links in markdown is using reference lists. You might want to use this style of linking to cite reference material in a Wikipedia-style. All of the links are listed at the end of the document, so you can maintain full separation between content and its source or reference.&lt;/p&gt;
+&lt;h2 id="creatingfootnotes"&gt;Creating footnotes&lt;/h2&gt;
+&lt;p&gt;The quick brown fox&lt;sup class="footnote-ref"&gt;&lt;a href="#fn1" id="fnref1"&gt;[1]&lt;/a&gt;&lt;/sup&gt; jumped over the lazy dog&lt;sup class="footnote-ref"&gt;&lt;a href="#fn2" id="fnref2"&gt;[2]&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Footnotes are a great way to add additional contextual details when appropriate. Ghost will automatically add footnote content to the very end of your post.&lt;/p&gt;
+&lt;h2 id="fullhtml"&gt;Full HTML&lt;/h2&gt;
+&lt;p&gt;Perhaps the best part of Markdown is that you're never limited to just Markdown. You can write HTML directly in the Ghost editor and it will just work as HTML usually does. No limits! Here's a standard YouTube embed code as an example:&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Cniqsc9QfDo?rel=0&amp;amp;showinfo=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;hr class="footnotes-sep"&gt;
+&lt;section class="footnotes"&gt;
+&lt;ol class="footnotes-list"&gt;
+&lt;li id="fn1" class="footnote-item"&gt;&lt;p&gt;Foxes are red &lt;a href="#fnref1" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id="fn2" class="footnote-item"&gt;&lt;p&gt;Dogs are usually not red &lt;a href="#fnref2" class="footnote-backref"&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Sorted arrays and branch predictors</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;In this post I’ll talk about something every person that has taken classes of data structures will be familiar with. But these days that I’m trying to go deeper in some concepts I’m gonna write about this idea in one particular case: &lt;strong&gt;sorted arrays&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The message I&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/sorted-arrays-and-branch-predictors/</link><guid isPermaLink="false">5b65c9d4ddaf49032c17005b</guid><category>branch-predictors</category><category>2016</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:48:05 GMT</pubDate><media:content url="http://localhost:2368/content/images/2018/08/algorithms.jpg" medium="image"/><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;img src="http://localhost:2368/content/images/2018/08/algorithms.jpg" alt="Sorted arrays and branch predictors"&gt;&lt;p&gt;In this post I’ll talk about something every person that has taken classes of data structures will be familiar with. But these days that I’m trying to go deeper in some concepts I’m gonna write about this idea in one particular case: &lt;strong&gt;sorted arrays&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The message I got from some those lectures was essentially that something sorted is gonna be faster in most cases than another thing that is unsorted. Well this is certainly true for arrays; if you measure the time it takes to process a sorted array, and compare it with the processing time of an unsorted one, the results will show this idea.&lt;/p&gt;
+&lt;h3 id="whatsthemagicbehindthis"&gt;What’s the magic behind this?&lt;/h3&gt;
+&lt;p&gt;We need to go deep to understand why this happens, in fact we need to start thinking in how a processor executes basic instructions. When a processor see a branch (e.g. if clause) it doesn’t know which way it will go.&lt;/p&gt;
+&lt;p&gt;The processor can halt execution and wait until the previous instructions are completed and then continue down the correct path … or … the processor could guess which direction the branch will go. If the guessing was right it continues executing instructions, other way the processor have to flush the pipeline, roll back to the branch and continue with the other branch.&lt;br&gt;
+This is a technology modern processors incorporate and is called Branch Prediction. This technology works by trying to predict which way a branch will go before this is known for sure. Branch predictors try to identify a pattern and follow it.&lt;br&gt;
+Most of the time modern branch predictors will guess right because applications use to have well-behaved branches, but when a predictors face unpredictable branches with no recognizable patterns (like in a random array).&lt;/p&gt;
+&lt;h3 id="realexample"&gt;Real example&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;if nums[index] &amp;lt;= 128:&lt;br&gt;
+sum += nums[index]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To understand it with an example the code above shows the processing we are doing over an array. When the data is sorted roughly the first half of the iterations will enter the if-statement and immediately after that, they will all enter the if-statement (Suppose the data we generated goes from 0 up to 255). This is really friendly to the branch predictor because the branch consecutively goes the same direction a lot of times.&lt;/p&gt;
+&lt;p&gt;However, when the data in the array is completely random, the branch predictor is useless because it can't predict random data. This way it will guess right around 50% of the times which is no better than random guessing.&lt;/p&gt;
+&lt;p&gt;This is the code in the case someone wants to try by himself: &lt;a href="https://gist.github.com/raul-hc/a427b2f602a2c5cd46f4da0d803542ca"&gt;Sorted array&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="references"&gt;References:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array?newsletter=1&amp;amp;nlcode=275343%7c112c"&gt;Why is it faster to process a sorted array than an unsorted array?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Branch_predictor"&gt;Branch predictor - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Welcome to this blog.</title><description>&lt;p&gt;Hi there! It's RaulHC here and I want to introduce you to my brand-new blog :)&lt;/p&gt;
+&lt;h2 id="whatisthisabout"&gt;&lt;strong&gt;What is this about?&lt;/strong&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;'Get comfortable being uncomfortable'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The previous quote resumes what this blog is all about. I'm not a person that feels really confortable showing the world some of my thoughts, work or&lt;/p&gt;</description><link>http://localhost:2368/welcome/</link><guid isPermaLink="false">5b65c460ddaf49032c170055</guid><category>2016</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:22:43 GMT</pubDate><media:content url="http://localhost:2368/content/images/2018/08/geometric.png" medium="image"/><content:encoded>&lt;img src="http://localhost:2368/content/images/2018/08/geometric.png" alt="Welcome to this blog."&gt;&lt;p&gt;Hi there! It's RaulHC here and I want to introduce you to my brand-new blog :)&lt;/p&gt;
+&lt;h2 id="whatisthisabout"&gt;&lt;strong&gt;What is this about?&lt;/strong&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;'Get comfortable being uncomfortable'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The previous quote resumes what this blog is all about. I'm not a person that feels really confortable showing the world some of my thoughts, work or ideas. It's a pet project that I will use to learn some new things getting out of my comfort zone. It's also a personal repository where I would try to contribute to the internet with some of my knowledge.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It's a diary about things I have done related to programming mostly.&lt;/li&gt;
+&lt;li&gt;It's a blog where I will write about some things that catch my eye about anything.&lt;/li&gt;
+&lt;li&gt;It's a place where express myself and practice some english witting.&lt;/li&gt;
+&lt;li&gt;It's all of the above and more.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So if you want to take a look and take advantage of anything write here, you are welcome!&lt;/p&gt;
+&lt;p&gt;PS: This is a gosh blog hosting on Github&lt;/p&gt;
+</content:encoded></item><item><title>Do not surround yourself with toxic people</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;Everybody will have to deal with toxic people in a way or another, at university, at work maybe even with some relative. What this post is about is how i used to deal with these kind of people driven  by envy or just their own boredom.&lt;/p&gt;
+&lt;h3 id="howcanyourecognizeatoxicperson"&gt;How can you recognize&lt;/h3&gt;&lt;/div&gt;</description><link>http://localhost:2368/do-not-surround-yourself-with-toxic-people/</link><guid isPermaLink="false">5b65c400ddaf49032c170053</guid><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:20:20 GMT</pubDate><media:content url="http://localhost:2368/content/images/2018/08/minimalist-bg.jpeg" medium="image"/><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;img src="http://localhost:2368/content/images/2018/08/minimalist-bg.jpeg" alt="Do not surround yourself with toxic people"&gt;&lt;p&gt;Everybody will have to deal with toxic people in a way or another, at university, at work maybe even with some relative. What this post is about is how i used to deal with these kind of people driven  by envy or just their own boredom.&lt;/p&gt;
+&lt;h3 id="howcanyourecognizeatoxicperson"&gt;How can you recognize a toxic person?&lt;/h3&gt;
+&lt;p&gt;Every person I've met with this sort of behavior usually are easy to recognize by their lack of motivation in life.  These a some of the behaviors that characterize them in my humble opinion:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For them only exists their way of doing something and that’s the correct way. &lt;strong&gt;This is obviously not true&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;They will throw at you phrases that can be summarize to 'you can't do X thing' or '...but you don't know anything about X'. &lt;strong&gt;This a form of underestimating you and your skills&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;They use to have a strong tendency to make judgments about other people with no absolutely zero about them.  &lt;strong&gt;You don’t know what someone has been through, you don’t know his story so don’t judge another person&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;They will try to stop you from doing what you want and they won't stop trying to drag you to the things they're good at and they can maintain a dominant position. &lt;strong&gt;This way they will always be &lt;em&gt;above you&lt;/em&gt; and will keep you from improve&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;Another way to recognize a toxic person is looking at what he talks about a thing. If he only talks about the negative aspects and emphasize them instead of centering the conversation in the good parts, ah…, begin to suspect. &lt;strong&gt;They are negative people by nature and instead lift you they will try to push you down&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="whattodo"&gt;What to do&lt;/h2&gt;
+&lt;p&gt;My personal experience says that the best option is to try to avoid them under all circumstances. But as I told you at the beginning of this post you will deal with people of all kinds during life so don’t worry, it’s just another experience you have to go thorough. In consequence, if you are forced to work in any way with people of this kind, just keep a cordial and professional relationship with them, do not include them in you social circle or your life.&lt;/p&gt;
+&lt;p&gt;And as a final advice, one I use myself, transform their attempts of making you desist in and extra boost of energy to get to your goals. As one quote I read once, &lt;em&gt;Tell me I can’t, then watch me work twice as hard to prove you wrong&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Have a nice day :)&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2018/08/logo-good-vibes.png" alt="Do not surround yourself with toxic people"&gt;&lt;/p&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Some useful search operators</title><description>&lt;div class="kg-card-markdown"&gt;&lt;h5 id="sitegetresultsfromcertainsitesordomains"&gt;&lt;strong&gt;&lt;em&gt;site:&lt;/em&gt;&lt;/strong&gt; Get results from certain sites or domains.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- olympics site:nbc.com
+- olympics site:.gov
+- admissions site:www.lse.ac.uk  -&amp;gt;  admissions information from London School of Economics’ site
+- peace site:gov -&amp;gt; pages about peace within the .gov domain. 
+windows security –site:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><link>http://localhost:2368/untitled/</link><guid isPermaLink="false">5b65c3c1ddaf49032c170051</guid><category>tricks</category><category>2016</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:19:07 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;h5 id="sitegetresultsfromcertainsitesordomains"&gt;&lt;strong&gt;&lt;em&gt;site:&lt;/em&gt;&lt;/strong&gt; Get results from certain sites or domains.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- olympics site:nbc.com
+- olympics site:.gov
+- admissions site:www.lse.ac.uk  -&amp;gt;  admissions information from London School of Economics’ site
+- peace site:gov -&amp;gt; pages about peace within the .gov domain. 
+windows security –site:microsoft.com -&amp;gt; information on Windows security from all sites except microsoft.com
+
+** You can specify a domain with or without a period, e.g., either as .gov or gov.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="relatedfindsitesthataresimilartoawebaddressyoualreadyknow"&gt;&lt;strong&gt;&lt;em&gt;related:&lt;/em&gt;&lt;/strong&gt;	Find sites that are similar to a web address you already know.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- related:time.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="orfindpagesthatmightuseoneofseveralwords"&gt;&lt;strong&gt;&lt;em&gt;OR&lt;/em&gt;&lt;/strong&gt;   -	  Find pages that might use one of several words.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- marathon OR race
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="infogetinformationaboutawebaddressincludingthecachedversionofthepagesimilarpagesandpagesthatlinktothesite"&gt;&lt;strong&gt;&lt;em&gt;info:&lt;/em&gt;&lt;/strong&gt;	Get information about a web address, including the cached version of the page, similar pages, and pages that link to the site.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- info:google.com
+- info:gothotel.com -&amp;gt; information about the national hotel directory GotHotel.com home page.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="cacheseewhatapagelookslikethelasttimegooglevisitedthesite"&gt;&lt;strong&gt;&lt;em&gt;cache:&lt;/em&gt;&lt;/strong&gt;		see what a page looks like the last time Google visited the site.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- cache:washington.edu
+- cache:www.eff.org -&amp;gt; will show Google’s cached version of the Electronic Frontier Foundation home page.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h5 id="defineshowsdefinitionsfrompagesonthewebforthetermthatfollowsthisadvancedsearchoperatorisusefulforfindingdefinitionsofwordsphrasesandacronymsforexample"&gt;&lt;strong&gt;&lt;em&gt;define:&lt;/em&gt;&lt;/strong&gt; shows definitions from pages on the web for the term that follows. This advanced search operator is useful for finding definitions of words, phrases, and acronyms. For example,&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- define: blog -&amp;gt; will show definitions for “Blog” (weB LOG).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="filetyperestricttheresultstopageswhosenamesendinsuffix"&gt;&lt;strong&gt;&lt;em&gt;filetype:&lt;/em&gt;&lt;/strong&gt; restrict the results to pages whose names end in suffix.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- web page evaluation checklist filetype:pdf -&amp;gt; will return Adobe Acrobat pdf files that match the terms &amp;quot;web&amp;quot;, &amp;quot;page&amp;quot;, &amp;quot;evaluation&amp;quot; and &amp;quot;checklist&amp;quot; 
+
+** You can restrict the results to pages whose names end with pdf and doc by using the OR operator, e.g. [  email security filetype:pdf OR filetype:doc ].
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="linkpagesthatpointtothaturl"&gt;&lt;strong&gt;&lt;em&gt;link:&lt;/em&gt;&lt;/strong&gt;	pages that point to that URL.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- link:www.googleguide.com -&amp;gt; pages that point to Google Guide’s home page
+- link:www.google.com -site:google.com  -&amp;gt; links to the Google home page not on Google’s own site.
+- link:www.www.ownersdirect.co.uk -site:ownersdirect.co.uk -&amp;gt; links to the UK Owners Direct home page not on its own site.
+
+basic search operators +, –, OR, and &amp;quot; &amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="inanchorrestricttheresultstopagescontainingthequerytermsyouspecifyintheanchortextorlinkstothepage"&gt;&lt;strong&gt;&lt;em&gt;inanchor:&lt;/em&gt;&lt;/strong&gt;  restrict the results to pages containing the query terms you specify in the anchor text or links to the page.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- restaurants inanchor:gourmet -&amp;gt; will return pages in which the anchor text on links to the pages contain the word “gourmet” and the page contains the word “restaurants.”
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="allinanchorrestrictsresultstopagescontainingallquerytermsyouspecifyintheanchortextonlinkstothepage"&gt;** &lt;em&gt;allinanchor:&lt;/em&gt;** restricts results to pages containing all query terms you specify in the anchor text on links to the page.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- allinanchor:best museums sydney -&amp;gt; will return only pages in which the anchor text on links to the pages contain the words “best,” “museums,” and “sydney”
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="intextrestrictsresultstodocumentscontainingterminthetext"&gt;&lt;strong&gt;&lt;em&gt;intext:&lt;/em&gt;&lt;/strong&gt;  restricts results to documents containing term in the text.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- Hamish Reid intext:pandemonia -&amp;gt; will return documents that mention the word “pandemonia” in the text, and mention the names “Hamish” and “Reid” anywhere in the document (text or not).
+
+** Putting intext: in front of every word in your query is equivalent to putting allintext: at the front of your query, e.g., *intext:handsome intext:poets* is the same as *allintext: handsome poets*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="intitlerestrictsresultstodocumentscontainingterminthetitle"&gt;&lt;strong&gt;&lt;em&gt;intitle:&lt;/em&gt;&lt;/strong&gt;  restricts results to documents containing term in the title.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- flu shot intitle:help -&amp;gt; will return documents that mention the word “help” in their titles, and mention the words “flu” and “shot” anywhere in the document (title or not).  
+
+** Putting intitle: in front of every word in your query is equivalent to putting allintitle: at the front of your query, e.g., *intitle:google intitle:search* is the same as *allintitle: google search*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id="inurlrestricttheresultstodocumentscontainingthatwordintheurl"&gt;&lt;strong&gt;&lt;em&gt;inurl:&lt;/em&gt;&lt;/strong&gt; restrict the results to documents containing that word in the URL.&lt;/h5&gt;
+&lt;pre&gt;&lt;code&gt;- inurl:print site:www.googleguide.com -&amp;gt; searches for pages on Google Guide in which the URL contains the word “print.” It finds pdf files that are in the directory or folder named “print” on the Google Guide website. 
+- inurl:healthy eating -&amp;gt; will return documents that mention the words “healthy” in their URL, and mention the word “eating” anywhere in the document.
+
+** Putting inurl: in front of every word in your query is equivalent to putting allinurl: at the front of your query, e.g., *inurl:healthy inurl:eating* is the same as *allinurl: healthy eating*
+In URLs, words are often run together. They need not be run together when you’re using inurl:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h4 id="symbols"&gt;&lt;strong&gt;Symbols:&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;-&lt;/strong&gt;&lt;br&gt;
+When you use a dash before a word or site, it excludes sites with that info from your results. This is useful for words with multiple meanings, like Jaguar the car brand and jaguar the animal.&lt;br&gt;
+&lt;em&gt;jaguar speed -car&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;pandas -site:wikipedia.org&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;“&lt;/strong&gt;&lt;br&gt;
+When you put a word or phrase in quotes, the results will only include pages with the same words in the same order as the ones inside the quotes. Only use this if you're looking for an exact word or phrase, otherwise you'll exclude many helpful results by mistake.&lt;br&gt;
+&lt;em&gt;“imagine all the people”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;*&lt;/strong&gt;	&lt;br&gt;
+Add an asterisk as a placeholder for any unknown or wildcard terms.&lt;br&gt;
+&lt;em&gt;”a * saved is a * earned”&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;..&lt;/strong&gt;&lt;br&gt;
+Separate numbers by two periods without spaces to see results that contain numbers in a range.&lt;br&gt;
+&lt;em&gt;hard drive $50..$75&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;References:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://support.google.com/websearch/answer/2466433?hl=en"&gt;Search operators - Search Help&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.googleguide.com/advanced_operators_reference.html"&gt;Google Search Operators - Google Guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item><item><title>Thoughts on my internship interview</title><description>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2018/08/job.png" alt="job"&gt;&lt;/p&gt;
+&lt;h6 id="thispostwasoriginallywritteninnovember2016andrecoveredfrommyoldblog"&gt;&lt;em&gt;This post was originally written in november 2016 and recovered from my old blog&lt;/em&gt;&lt;/h6&gt;
+&lt;hr&gt;
+&lt;p&gt;This is my final year at university as Software Engineer Student and we need to complete at least 120 hours working in a company as a part of one of the 'subjects'.&lt;/p&gt;
+&lt;p&gt;The process starts with&lt;/p&gt;&lt;/div&gt;</description><link>http://localhost:2368/thoughts-on-my-internship-interview-2/</link><guid isPermaLink="false">5b65c020ddaf49032c170049</guid><category>job-interview</category><category>first-job</category><category>2016</category><dc:creator>Raul Herrador</dc:creator><pubDate>Sat, 04 Aug 2018 15:11:23 GMT</pubDate><content:encoded>&lt;div class="kg-card-markdown"&gt;&lt;p&gt;&lt;img src="http://localhost:2368/content/images/2018/08/job.png" alt="job"&gt;&lt;/p&gt;
+&lt;h6 id="thispostwasoriginallywritteninnovember2016andrecoveredfrommyoldblog"&gt;&lt;em&gt;This post was originally written in november 2016 and recovered from my old blog&lt;/em&gt;&lt;/h6&gt;
+&lt;hr&gt;
+&lt;p&gt;This is my final year at university as Software Engineer Student and we need to complete at least 120 hours working in a company as a part of one of the 'subjects'.&lt;/p&gt;
+&lt;p&gt;The process starts with a list of offering companies and every student enrolled in the course choose several options in order of preference. Then the course staff start to sort by average grade mainly the students. The output of this process is a list of students who should contact the respective companies to start the process.&lt;/p&gt;
+&lt;p&gt;Well, so my first company choice was CSC, a very large company located in Avilés (also Barcelona, Madrid, etc). I contacted the human resources person who was responsible of the agreement with my university and sent her the english version of my resumé. After a couple of weeks I received a call asking me to go to their offices in Avilés next day. I accepted to be there at mid-morning to realize the internship interview.&lt;/p&gt;
+&lt;h4 id="theinterview"&gt;The interview&lt;/h4&gt;
+&lt;p&gt;I arrived at their offices a little bit early because I try to follow the rule '5 Minutes early is on time; on time is late; late is unacceptable.' I had to sign a sort of contract to enter the building and keep in view the visitor's accreditation that I was given.&lt;/p&gt;
+&lt;p&gt;After a few minutes two men, one from Spain and one foreigner, came and introduce themselves. They were part of the IT systems department of the company. All of us went to a meeting room where they started asking me some questions about my CV (they'd printed it and underline the parts they were more interested in). When we finished talking two of the DevOps engineers of the company and one of the development department entered the room and introduced themselves. They asked me kind of the same things that the other team and some questions about their respective job tasks, like if I was familiar with some of the concepts. We also talked about some of the technologies the company use in daily task and a little about how things work there. I explained them why I think university is a little obsolete and the disconnection that exists between the institution and the real-world companies. We also talked about some of my hobbies, what project I was working on for my final course between others.&lt;/p&gt;
+&lt;p&gt;I wouldn't like to finish without adding I felt really comfortable talking with all of these people, specially because they were actual workers of the company and I had the opportunity to ask them some technical questions related to the task I would be doing. In fact it was more like a relaxed conversation between engineers who like working on what they do. All of this process was realized in Spanish and English to test my conversational skills . I didn't wanted to fool anybody about my english level and I liked the idea to talk a little in the Shakespeare's language even though I'm not the best english speaker xD&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UPDATE: Today I received a call from CSC's human resources department telling me I was one of the selected candidates. Hooray!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;</content:encoded></item></channel></rss>
